@@ -166,7 +166,7 @@ class Controller:
     """Управление переключением окон (с логина на главное)"""
     def __init__(self):
         # ВНИМАНИЕ: При запуске дома поменяй '127.0.0.1' на твой Tailscale IP '100.84.142.92'
-        self.backend = ZabbixBackend(server_url='http://127.0.0.1/zabbix')
+        self.backend = ZabbixBackend(server_url='http://192.168.101.220/zabbix')
         
         self.stacked_widget = QStackedWidget()
         self.login_window = LoginWindow(self.backend, self.show_main_window)
@@ -183,9 +183,6 @@ class Controller:
         self.main_window.load_data_from_zabbix()
 
 if __name__ == '__main__':
-    app = QAppli
-
-
-cation(sys.argv)
+    app = QApplication(sys.argv)
     controller = Controller()
     sys.exit(app.exec())

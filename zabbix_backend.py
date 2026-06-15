@@ -7,8 +7,7 @@ logging.basicConfig(filename='app_errors.log', level=logging.ERROR,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 class ZabbixBackend:
-    def __init__(self, server_url='http://100.84.142.92/zabbix'):
-        # При работе из дома укажем глобальный IP от Tailscale!
+    def __init__(self, server_url='http://192.168.101.220/zabbix'):
         self.server_url = server_url
         self.zapi = ZabbixAPI(self.server_url)
         self.zapi.session.verify = False
@@ -42,10 +41,7 @@ class ZabbixBackend:
             logging.error(f"Ошибка получения списка хостов: {e}")
             return []
 
-    def g
-
-
-et_cpu_history(self, host_id):
+    def get_cpu_history(self, host_id):
         """Получение метрик CPU за последний час для графика"""
         try:
             items = self.zapi.item.get(hostids=host_id, search={'name': 'CPU utilization'}, output=['itemid', 'value_type'])
