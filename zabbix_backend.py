@@ -1,3 +1,4 @@
+import logging
 import time
 from datetime import datetime, timedelta
 from pyzabbix import ZabbixAPI
@@ -15,7 +16,7 @@ class ZabbixBackend:
             print(f"Успешное подключение к Zabbix API: {self.server_url}")
             return True
         except Exception as e:
-            print(f"Ошибка авторизации в Zabbix: {e}")
+            logging.error(f"Ошибка авторизации в Zabbix: {e}")
             self.zapi = None
             return False
 
@@ -79,7 +80,7 @@ class ZabbixBackend:
                 })
             return hosts
         except Exception as e:
-            print(f"Ошибка получения списка хостов: {e}")
+            logging.error(f"Ошибка получения списка хостов: {e}")
             return []
 
     def get_cpu_history(self, host_id):
@@ -125,5 +126,5 @@ class ZabbixBackend:
             return times, values
 
         except Exception as e:
-            print(f"Ошибка при запросе истории: {e}")
+            logging.error(f"Ошибка при запросе истории: {e}")
             return [], []

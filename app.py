@@ -1,3 +1,7 @@
+import logging
+import csv
+from PyQt6.QtCore import QTimer # Добавь QTimer в импорты из PyQt6.QtCore
+from PyQt6.QtWidgets import QFileDialog # Добавь QFileDialog в импорты из PyQt6.QtWidgets
 import sys
 from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QLineEdit, 
                              QPushButton, QVBoxLayout, QHBoxLayout, 
@@ -9,6 +13,12 @@ from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 
 # Импортируем наш бэкенд, который мы упаковали в файл zabbix_backend.py
 from zabbix_backend import ZabbixBackend
+
+logging.basicConfig(
+    filename='app_errors.log',
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 class LoginWindow(QWidget):
     """Окно авторизации"""
@@ -59,6 +69,26 @@ class LoginWindow(QWidget):
 
 class MainWindow(QWidget):
     """Главное окно мониторинга"""
+    def export_to_csv(self):
+        if not self.all_hosts_data:
+            return
+            
+        path, _ = QFileDialog.getSaveFileName(self, "Сохранить файл", "", "CSV Files (*.csv)")
+        if path:
+            try:
+                with open(path, 'w', newline='', encoding='utf-8') as stream:
+                    writer = csv.writer(stream, delimiter=';')
+                    # Заголовки таблицы
+                    writer.writerow(['ID узла', 'Имя устройства', 'IP адрес', 'Статус в системе'])
+                    
+                    # Записываем данные
+                    for host in self.all_hosts_data:
+                        status_text = "Активен" if host['available'] else "Недоступен"
+                        writer.writerow([host['id'], host['name'], host['ip'], status_text])
+                print(f"Данные успешно экспортированы в {path}")
+            except Exception as e:
+                logging.error(f"Ошибка при экспорте в CSV: {e}")
+    
     def __init__(self, backend):
         super().__init__()
         self.backend = backend
@@ -103,6 +133,10 @@ class MainWindow(QWidget):
 
         main_layout.addLayout(right_layout, stretch=2)
         self.setLayout(main_layout)
+
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.load_data_from_zabbix)
+        self.timer.start(30000)  # 30000 миллисекунд = 30 секунд
 
     def load_data_from_zabbix(self):
         """Загрузка хостов из нашего бэкенда"""
