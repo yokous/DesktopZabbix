@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Диаграмма классов" id="65SV-HAAZTgRo7S4jJKr">
+    <mxGraphModel dx="689" dy="1313" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-108" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#E6F2FF;strokeColor=#0066CC;strokeWidth=1.5;" value="Controller&#xa;--&#xa;- login_window: LoginWindow&#xa;- main_window: MainWindow&#xa;- backend: ZabbixBackend&#xa;--&#xa;+ __init__()&#xa;+ show_login()&#xa;+ switch_to_main()" vertex="1">
+          <mxGeometry height="150" width="220" x="2250" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-109" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#E6F2FF;strokeColor=#0066CC;strokeWidth=1.5;" value="LoginWindow&#xa;--&#xa;- input_url: QLineEdit&#xa;- input_login: QLineEdit&#xa;- input_pass: QLineEdit&#xa;- btn_login: QPushButton&#xa;--&#xa;+ __init__()&#xa;+ get_credentials()&#xa;+ show_error(msg: str)" vertex="1">
+          <mxGeometry height="170" width="200" x="2000" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-110" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#E6F2FF;strokeColor=#0066CC;strokeWidth=1.5;" value="MainWindow&#xa;--&#xa;- list_hosts: QListWidget&#xa;- input_filter: QLineEdit&#xa;- plot_canvas: FigureCanvas&#xa;- btn_export: QPushButton&#xa;--&#xa;+ __init__()&#xa;+ populate_hosts(hosts: list)&#xa;+ update_graph(x: list, y: list)&#xa;+ save_to_csv()" vertex="1">
+          <mxGeometry height="185" width="240" x="2240" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-111" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#E6F2FF;strokeColor=#0066CC;strokeWidth=1.5;" value="ZabbixBackend&#xa;--&#xa;- api_url: str&#xa;- auth_token: str&#xa;- log_file: str = &#39;app_errors.log&#39;&#xa;--&#xa;+ __init__()&#xa;+ connect(u, p) : bool&#xa;+ get_all_hosts() : list&#xa;+ get_cpu_history(id) : tuple&#xa;- _log_error(err_msg: str)" vertex="1">
+          <mxGeometry height="185" width="220" x="2530" y="662.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-112" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-108" style="endArrow=diamond;endFill=0;html=1;strokeColor=#0066CC;strokeWidth=1.5;exitX=0;exitY=0.75;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="gegtC7HxZWgpFShu-0Bw-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-113" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-108" style="endArrow=diamond;endFill=0;html=1;strokeColor=#0066CC;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="gegtC7HxZWgpFShu-0Bw-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-114" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-108" style="endArrow=diamond;endFill=0;html=1;strokeColor=#0066CC;strokeWidth=1.5;exitX=1;exitY=0.75;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="gegtC7HxZWgpFShu-0Bw-111">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-115" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-109" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#666666;exitX=1;exitY=0.25;entryX=0;entryY=0.25;edgeStyle=orthogonalEdgeStyle;" target="gegtC7HxZWgpFShu-0Bw-111" value="«use»">
+          <mxGeometry relative="1" x="-0.02" y="-10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-116" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-110" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#666666;exitX=1;exitY=0.5;entryX=0;entryY=0.5;edgeStyle=orthogonalEdgeStyle;" target="gegtC7HxZWgpFShu-0Bw-111" value="«use»">
+          <mxGeometry relative="1" y="-10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

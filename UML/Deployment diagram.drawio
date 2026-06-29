@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Диаграмма коопераций" id="65SV-HAAZTgRo7S4jJKr">
+    <mxGraphModel dx="2343" dy="1313" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-50" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;strokeWidth=2;fillColor=#FFF2CC;strokeColor=#D6B656;" value=":Администратор" vertex="1">
+          <mxGeometry height="80" width="40" x="500" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-51" parent="1" style="html=1;whiteSpace=wrap;fillColor=#E6F2FF;strokeColor=#0066CC;strokeWidth=1.5;fontStyle=1;align=center;" value="main_window : MainWindow&#xa;(Интерфейс PyQt6)" vertex="1">
+          <mxGeometry height="50" width="180" x="660" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-52" parent="1" style="html=1;whiteSpace=wrap;fillColor=#E6F2FF;strokeColor=#0066CC;strokeWidth=1.5;fontStyle=1;align=center;" value="backend : ZabbixBackend&#xa;(Бизнес-логика)" vertex="1">
+          <mxGeometry height="50" width="180" x="960" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-53" parent="1" style="html=1;whiteSpace=wrap;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=1.5;fontStyle=1;align=center;" value="zabbix_server : Zabbix API&#xa;(Удаленный сервер)" vertex="1">
+          <mxGeometry height="50" width="180" x="1260" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-54" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-50" style="endArrow=none;html=1;strokeWidth=1.2;strokeColor=#333333;" target="gegtC7HxZWgpFShu-0Bw-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-55" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#333333;" value="1: Клик по хосту в списке →" vertex="1">
+          <mxGeometry height="20" width="100" x="550" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-56" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#333333;" value="← 6: Просмотр графика CPU" vertex="1">
+          <mxGeometry height="20" width="100" x="550" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-57" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-51" style="endArrow=none;html=1;strokeWidth=1.2;strokeColor=#0066CC;" target="gegtC7HxZWgpFShu-0Bw-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-58" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#0066CC;" value="2: get_cpu_history(host_id) →" vertex="1">
+          <mxGeometry height="20" width="110" x="845" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-59" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#0066CC;" value="← 5: Возврат массивов X и Y" vertex="1">
+          <mxGeometry height="20" width="110" x="845" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-60" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-52" style="endArrow=none;html=1;strokeWidth=1.2;strokeColor=#666666;" target="gegtC7HxZWgpFShu-0Bw-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-61" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#666666;" value="3: JSON-RPC request →" vertex="1">
+          <mxGeometry height="20" width="110" x="1145" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-62" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#666666;" value="← 4: JSON response (history)" vertex="1">
+          <mxGeometry height="20" width="110" x="1145" y="580" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

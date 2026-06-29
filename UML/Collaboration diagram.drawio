@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Диаграмма коопераций" id="65SV-HAAZTgRo7S4jJKr">
+    <mxGraphModel dx="2343" dy="1313" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-77" parent="1" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;strokeWidth=1.5;fillColor=#FFF2CC;strokeColor=#D6B656;" value="Администратор" vertex="1">
+          <mxGeometry height="480" width="20" x="700" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-78" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=12;outlineConnect=0;strokeWidth=1.5;fillColor=#E6F2FF;strokeColor=#0066CC;" value="main_window : MainWindow" vertex="1">
+          <mxGeometry height="480" width="160" x="840" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-79" parent="gegtC7HxZWgpFShu-0Bw-78" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFFFFF;strokeColor=#0066CC;" value="" vertex="1">
+          <mxGeometry height="320" width="10" x="75" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-80" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=12;outlineConnect=0;strokeWidth=1.5;fillColor=#E6F2FF;strokeColor=#0066CC;" value="backend : ZabbixBackend" vertex="1">
+          <mxGeometry height="480" width="160" x="1080" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-81" parent="gegtC7HxZWgpFShu-0Bw-80" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFFFFF;strokeColor=#0066CC;" value="" vertex="1">
+          <mxGeometry height="150" width="10" x="75" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-82" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=12;outlineConnect=0;strokeWidth=1.5;fillColor=#F5F5F5;strokeColor=#666666;" value="zabbix_server : Zabbix API" vertex="1">
+          <mxGeometry height="480" width="160" x="1320" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-83" parent="gegtC7HxZWgpFShu-0Bw-82" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#FFFFFF;strokeColor=#666666;" value="" vertex="1">
+          <mxGeometry height="70" width="10" x="75" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-84" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-77" style="endArrow=classic;html=1;verticalAlign=bottom;labelBackgroundColor=none;" target="gegtC7HxZWgpFShu-0Bw-79" value="1. Клик по хосту в списке">
+          <mxGeometry relative="1" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="720" y="480" as="sourcePoint" />
+            <mxPoint x="910" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-85" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-79" style="endArrow=classic;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeColor=#0066CC;" target="gegtC7HxZWgpFShu-0Bw-81" value="2. get_cpu_history(host_id)">
+          <mxGeometry relative="1" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="930" y="520" as="sourcePoint" />
+            <mxPoint x="1140" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-86" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-81" style="endArrow=classic;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeColor=#666666;" target="gegtC7HxZWgpFShu-0Bw-83" value="3. HTTP POST (history.get)">
+          <mxGeometry relative="1" y="10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="1170" y="560" as="sourcePoint" />
+            <mxPoint x="1380" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-87" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-83" style="endArrow=dash;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeColor=#666666;dashed=1;endFill=1;" target="gegtC7HxZWgpFShu-0Bw-81" value="4. JSON-RPC ответ с точками">
+          <mxGeometry relative="1" x="-0.1739" y="-45" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="1380" y="630" as="sourcePoint" />
+            <mxPoint x="1170" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-88" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-81" style="endArrow=dash;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeColor=#0066CC;dashed=1;endFill=1;" target="gegtC7HxZWgpFShu-0Bw-79" value="5. Массивы времени и значений метрик">
+          <mxGeometry relative="1" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="1140" y="670" as="sourcePoint" />
+            <mxPoint x="930" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-89" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-79" style="endArrow=classic;html=1;verticalAlign=bottom;labelBackgroundColor=none;strokeColor=#0066CC;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.75;entryX=1;entryY=0.85;" target="gegtC7HxZWgpFShu-0Bw-79" value="6. Локальный рендеринг">
+          <mxGeometry relative="1" x="0.3333" y="25" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="930" y="700" as="sourcePoint" />
+            <mxPoint x="950" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gegtC7HxZWgpFShu-0Bw-90" edge="1" parent="1" source="gegtC7HxZWgpFShu-0Bw-79" style="endArrow=dash;html=1;verticalAlign=bottom;labelBackgroundColor=none;dashed=1;endFill=1;" target="gegtC7HxZWgpFShu-0Bw-77" value="7. Отображение нового графика CPU">
+          <mxGeometry relative="1" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="910" y="780" as="sourcePoint" />
+            <mxPoint x="720" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
