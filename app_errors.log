@@ -12,3 +12,23 @@
 2026-06-16 10:33:23,532 - ERROR - Ошибка получения списка хостов: 403 Client Error: Forbidden for url: http://192.168.101.220/zabbix/api_jsonrpc.php
 2026-06-16 10:33:53,551 - ERROR - Ошибка получения списка хостов: 403 Client Error: Forbidden for url: http://192.168.101.220/zabbix/api_jsonrpc.php
 2026-06-16 10:34:23,564 - ERROR - Ошибка получения списка хостов: 403 Client Error: Forbidden for url: http://192.168.101.220/zabbix/api_jsonrpc.php
+2026-07-01 08:59:02,806 - ERROR - РћС€РёР±РєР° Р°РІС‚РѕСЂРёР·Р°С†РёРё: 403 Client Error: Forbidden for url: http://192.168.101.220/zabbix/api_jsonrpc.php
+Traceback (most recent call last):
+  File "C:\zabbix-des\DesktopZabbix\zabbix_backend.py", line 33, in connect
+    self.zapi.login(username, password)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ronjin.ma\AppData\Local\Programs\Python\Python314\Lib\site-packages\pyzabbix\api.py", line 123, in login
+    self.version = Version(self.api_version())
+                           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ronjin.ma\AppData\Local\Programs\Python\Python314\Lib\site-packages\pyzabbix\api.py", line 187, in api_version
+    return self.apiinfo.version()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ronjin.ma\AppData\Local\Programs\Python\Python314\Lib\site-packages\pyzabbix\api.py", line 278, in __call__
+    return self._parent.do_request(self._method, args or kwargs)["result"]
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ronjin.ma\AppData\Local\Programs\Python\Python314\Lib\site-packages\pyzabbix\api.py", line 226, in do_request
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ronjin.ma\AppData\Local\Programs\Python\Python314\Lib\site-packages\requests\models.py", line 1167, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://192.168.101.220/zabbix/api_jsonrpc.php
