@@ -1,4 +1,3 @@
----
 <div align="center">
 
 # 🖥️ Zabbix Desktop Monitor
