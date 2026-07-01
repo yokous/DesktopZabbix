@@ -1,3 +1,4 @@
+---
 <div align="center">
 
 # 🖥️ Zabbix Desktop Monitor
@@ -11,6 +12,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-0078D4?style=for-the-badge)
 
 </div>
+
 ---
 
 ## 📖 О проекте
