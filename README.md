@@ -1,4 +1,4 @@
-<div align="center">
+
 
 # 🖥️ Zabbix Desktop Monitor
 
@@ -10,7 +10,6 @@
 ![Zabbix](https://img.shields.io/badge/Zabbix-7.x-CC0000?style=for-the-badge&logo=zabbix&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-0078D4?style=for-the-badge)
 
-</div>
 
 ---
 
